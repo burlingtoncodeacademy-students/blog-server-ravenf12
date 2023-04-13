@@ -13,13 +13,13 @@ In this project, you will create a backend of a blog application, utilizing Mode
 
 ## Create your project
 
-Utilize `npm init -y` to create your project.
+(X) Utilize `npm init -y` to create    your project.
 
-Install your `express`, `nodemon`, and `dotenv` dependencies.
+(X) Install your `express`, `nodemon`, and `dotenv` dependencies.
 
-Create your `app.js` file which will contain your entry points. I already created a `.gitignore` for your convenience and filled it with node modules and your environment variable.
+(X) Create your `app.js` file which will contain your entry points. I already created a `.gitignore` for your convenience and filled it with node modules and your environment variable.
 
-Create an `api` folder which will hold `blog.json` file. The file should contain the following data schematic:
+(X) Create an `api` folder which will hold `blog.json` file. The file should contain the following data schematic:
 
 ```json
 [
