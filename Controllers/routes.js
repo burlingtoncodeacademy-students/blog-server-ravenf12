@@ -85,68 +85,36 @@ router.post("/create", (req, res) => {
   }
 });
 
-// http://localhost:5001/routes/edit
-router.patch("/edit", async (req, res) => {
-  try {
-    let Route;
-      // Pulling the values from the url & req.body 
-      const { id } = req.params;
-      const { body } = req.body; // only want the user to be able to change what they said, not who said it, or where they said it
+// Patch without interesting stuff
+router.put(":/id", (req, res) => {
+  try{
+    const id = Number(req.params.id);
 
-      // Make a filter
-      const filter = {_id: id};
+    fs.readFile("./api/blog.json", (err, data) => {
+      if (err) throw err;
 
-      // Check for only what the user wants to change about the message (new stuff)
-      const returnOption = {new: true};
-
-      // Passing in new info!!
-      const updateRoute = await Route.findOneAndUpdate(
-          filter,
-          { body }, // needs to be an object to work properly
-          returnOption
-      );
-
-      // Check to see if we were able to update
-      updateRoute ?
-          res.status(200).json({
-              // if the message was found and updated
-              message: `Updated!`, updateRoute,
-          })
-          : res.status(404).json({
-              // if the message was not found and/or did not belong to the user
-              message: `Can't find..`
-          });
+      let results;
+    })
   } catch (err) {
     res.status(500).json({
-      error: err.message,
-    });
+      error: err.message
+    })
   }
-});
+})
 
-// http://localhost:5001/routes/title
-router.delete('/title', async (req,res) => {
+// DELETE
+router.delete(":/id", (req, res) => {
   try {
-      // Pulling some value
-      const { id } = req.params;
-      // Delete the route 
-      const deleteRoutes = await routes.deleteOne({_id: id, owner_id: req.user._id});
+    const id = Number(req.params.id)
 
-      // Send the response based on whether we deleted something
-      deleteRoutes.deletedCount === 1 ?
-          res.status(200).json({
-              // if deleted
-              message: "Deleted!"
-          })
-          : res.status(404).json({
-              // if not deleted
-              message: "I can't find that.."
-          });
+    fs.readFile("./api/blog.json", (err, data) => {
+      
+    })
   } catch (err) {
-    res.status(500).json({
-      error: err.message,
-    });
+    err
   }
-}); 
+})
+// ! Check out routes.controller, from toDoList
 
 
   module.exports = router;

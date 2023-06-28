@@ -2,13 +2,7 @@
 const express = require("express");
 require("dotenv").config();
 const app = express();
-const PORT = 5001;
 const fs = require("fs");
-// Mongoose
-const mongoose = require("mongoose");
-mongoose.set(`strictQuery`, false);
-const MONGO = process.env.MONGODB;
-mongoose.connect(`${MONGO}`);
 
 // Controller variable 
 const routes = require("./Controllers/routes.js");
