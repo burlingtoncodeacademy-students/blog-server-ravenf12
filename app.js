@@ -1,6 +1,6 @@
 // Import stuff
-const express = require("express");
 require("dotenv").config();
+const express = require("express");
 const app = express();
 const fs = require("fs");
 
@@ -12,8 +12,8 @@ app.use(express.json());
 app.use("/routes", routes);
 // http://localhost:5001/routes
 
-app.listen(PORT, () => {
-    console.log(`Server is running on port: ${PORT}`);
+app.listen(process.env.PORT, () => {
+    console.log(`Server is running on port: ${process.env.PORT}`);
   });
 
 
